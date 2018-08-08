@@ -22,14 +22,14 @@ ALPHASIZE = my_txtutils.ALPHASIZE
 NLAYERS = 3
 INTERNALSIZE = 512
 
-MNTB10 = "checkpoints/rnn_train_1531339062-0"
+MNTB10 = "checkpoints/rnn_train_1531319182-0"
 
 # use topn=10 for all but the last one which works with topn=2 for Shakespeare and topn=3 for Python
 author = MNTB10
 
 ncnt = 0
 with tf.Session() as sess:
-    new_saver = tf.train.import_meta_graph('checkpoints/rnn_train_1531339062-0.meta')
+    new_saver = tf.train.import_meta_graph('checkpoints/rnn_train_1531319182-0.meta')
     new_saver.restore(sess, author)
     x = my_txtutils.convert_from_alphabet(ord("L"))
     x = np.array([[x]])  # shape [BATCHSIZE, SEQLEN] with BATCHSIZE=1 and SEQLEN=1
